@@ -1,10 +1,32 @@
-/_build
-/cover
-/deps
-/doc
+# Elixir core
+/_build/
+/cover/
+/deps/
+/doc/
 /.fetch
 erl_crash.dump
 *.ez
+financial_glance-*.tar
+/tmp/
 *.beam
+/.elixir_ls/
+
+# Secrets & instance config — never commit
+.env
+.env.*
+!.env.example
 /config/*.secret.exs
-.elixir_ls/
+
+# Node client(s)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
