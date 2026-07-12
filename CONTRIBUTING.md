@@ -6,7 +6,7 @@ Thanks for your interest in Financial Glance. This project has a strong, deliber
 
 1. **One issue → one branch → one PR.** Branch names like `phase-0-docs`, `phase-2-domain`.
 2. **Conventional Commits.** e.g. `feat(domain): add Account schema`, `docs: add ADR-0006`, `test(valuation): cover allocation`.
-3. **PRs reference the issue** (`Closes #N`) and note which ADRs they touch.
+3. **PRs reference the issue** (`Related to #N`) and note which ADRs they touch.
 4. **If a decision changes, update the relevant ADR in the same PR.** Docs never drift from code.
 
 ## The invariants (summary — full list in AGENTS.md)
