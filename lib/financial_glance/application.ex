@@ -14,6 +14,7 @@ defmodule FinancialGlance.Application do
       {Phoenix.PubSub, name: FinancialGlance.PubSub},
       # Start a worker by calling: FinancialGlance.Worker.start_link(arg)
       # {FinancialGlance.Worker, arg},
+      FinancialGlance.Snapshots.SnapshotWorker,
       # Start to serve requests, typically the last entry
       FinancialGlanceWeb.Endpoint
     ]
