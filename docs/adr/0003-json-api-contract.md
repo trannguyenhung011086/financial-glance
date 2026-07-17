@@ -15,3 +15,4 @@ The HTTP JSON API is the one public surface. Clients talk to it only. Publish an
 - Any HTTP-capable language can be a client — the tech-agnostic goal is met.
 - The spec is self-documenting and enforceable.
 - Formatting/logic stays server-side, keeping clients dumb.
+- v1 responses include raw amount_minor + currency + a derived display string; a temporary x-user-id plug stands in for auth until #7 (same :current_user assign).
