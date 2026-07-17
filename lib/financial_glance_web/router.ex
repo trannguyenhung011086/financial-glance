@@ -3,12 +3,32 @@ defmodule FinancialGlanceWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug OpenApiSpex.Plug.PutApiSpec, module: FinancialGlanceWeb.ApiSpec
+  end
+
+  pipeline :api_auth do
+    plug FinancialGlanceWeb.Plugs.CurrentUser
+  end
+
+  scope "/api" do
+    pipe_through :api
+    get "/openapi", OpenApiSpex.Plug.RenderSpec, :show
+    get "/swaggerui", OpenApiSpex.Plug.SwaggerUI, path: "/api/openapi"
   end
 
   scope "/api", FinancialGlanceWeb do
     pipe_through :api
 
     get "/health", HealthController, :index
+  end
+
+  scope "/api", FinancialGlanceWeb do
+    pipe_through [:api, :api_auth]
+
+    resources "/accounts", AccountController, except: [:new, :edit]
+    get "/glance", GlanceController, :show
+    get "/snapshots", SnapshotController, :index
+    post "/snapshots", SnapshotController, :create
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
