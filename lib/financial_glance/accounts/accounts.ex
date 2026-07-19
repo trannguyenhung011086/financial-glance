@@ -7,7 +7,7 @@ defmodule FinancialGlance.Accounts do
   # --- Users (minimal; auth arrives in #7) ---
 
   def create_user(attrs) do
-    %User{} |> User.changeset(attrs) |> Repo.insert()
+    %User{} |> User.registration_changeset(attrs) |> Repo.insert()
   end
 
   def get_user!(id), do: Repo.get!(User, id)

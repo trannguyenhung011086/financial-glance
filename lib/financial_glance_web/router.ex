@@ -20,11 +20,13 @@ defmodule FinancialGlanceWeb.Router do
     pipe_through :api
 
     get "/health", HealthController, :index
+    post "/login", SessionController, :create
   end
 
   scope "/api", FinancialGlanceWeb do
     pipe_through [:api, :api_auth]
 
+    post "/logout", SessionController, :delete
     resources "/accounts", AccountController, except: [:new, :edit]
     get "/glance", GlanceController, :show
     get "/snapshots", SnapshotController, :index
