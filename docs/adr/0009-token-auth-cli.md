@@ -15,3 +15,4 @@ A terminal client can't use browser cookies/redirects. The real-product pattern 
 - "Session" = persisted token on disk + server-side validation — no cookies.
 - Simple, private, self-contained (no third-party IdP).
 - Device-flow / keychain storage deferred as later enhancements.
+- Passwords hashed with bcrypt; API tokens are random, stored as SHA-256 hashes in api_tokens, presented as Bearer tokens; logout deletes the token row.

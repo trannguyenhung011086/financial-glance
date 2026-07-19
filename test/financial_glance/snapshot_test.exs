@@ -4,7 +4,7 @@ defmodule FinancialGlance.SnapshotsTest do
   alias FinancialGlance.{Accounts, Snapshots}
 
   defp user_with_accounts do
-    {:ok, user} = Accounts.create_user(%{"email" => "s#{System.unique_integer([:positive])}@ex.com"})
+    {:ok, user} = Accounts.create_user(%{"email" => "s#{System.unique_integer([:positive])}@ex.com", "password" => "password123"})
 
     {:ok, _} = Accounts.create_account(user, %{
       "platform" => "TCInvest", "asset_class" => "stocks",
